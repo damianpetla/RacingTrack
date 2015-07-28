@@ -18,11 +18,15 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    dexOptions {
+        javaMaxHeapSize "2048M"
+    }
 
 }
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'io.realm:realm-android:0.81.1'
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     compile 'org.jetbrains.anko:anko:0.6.3-15s'
     compile 'com.android.support:design:22.2.1'
@@ -31,4 +35,10 @@ dependencies {
         exclude module: 'support-v4'
         exclude module: 'support-annotations'
     }
+    //Networking dependencies
+    compile 'com.squareup.retrofit:retrofit:1.9.0'
+    compile 'com.squareup.okhttp:okhttp:2.3.0'
+    //Rx dependency
+    compile 'io.reactivex:rxandroid:0.24.0'
+    compile 'net.danlew:android.joda:2.8.1'
 }
